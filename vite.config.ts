@@ -5,9 +5,6 @@ import { defineConfig } from "vite";
 export default defineConfig({
   build: {
     outDir: "dist",  // Output directory changed to "dist"
-    rollupOptions: {
-      external: ["aptos"],
-    },
   },
   server: {
     open: true,
