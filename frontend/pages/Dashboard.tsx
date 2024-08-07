@@ -18,7 +18,7 @@ const Dashboard: React.FC = () => {
           <GraphFetch onDataReceived={handleDataReceived} />
           <div className="overflow-x-auto">
             {dataAddeds.length > 0 ? (
-              <table className="mx-auto bg-transparent border border-gray-200">
+              <table className="mx-auto bg-transparent backdrop-blur-2xl border border-gray-200">
                 <thead>
                   <tr>
                     <th className="py-2 px-4 brandy-font border border-gray-200">ID</th>
