@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from 'react';
 import Marquee from "react-fast-marquee";
 
 const videoData = [

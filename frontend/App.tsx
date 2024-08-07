@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
-import {Entry} from './pages/Entry';
 import HowitWorks from './components/HowitWorks';
 import Tutorials from './components/Tutorials';
 import Dashboard from './pages/Dashboard';
@@ -20,7 +19,6 @@ const AppContent = () => {
         <Route path="/howitworks" element={<HowitWorks />} />
         <Route path="/walkthrough" element={<Tutorials />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/entry" element={<Entry />} />
       </Routes>
     </>
   );

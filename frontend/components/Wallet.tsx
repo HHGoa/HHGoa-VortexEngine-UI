@@ -1,9 +1,7 @@
 import { useWallet } from '@aptos-labs/wallet-adapter-react';
 import { Header } from './Header';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardHeader } from './ui/card';
 import { WalletDetails } from './WalletDetails';
-import { NetworkInfo } from './NetworkInfo';
-import { AccountInfo } from './AcoountInfo';
 
 function Wallet() {
   const { connected } = useWallet();
