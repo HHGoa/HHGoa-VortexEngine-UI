@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 
 export interface DataAdded {
   id: string;
-  DataStorage_id: string;
-  userAddress: string;
-  blockNumber: number;
+  VortexScan_id: string; // Update the interface to match the query
+  user: string;
+  dataUri: string;
 }
 
 interface GraphFetchProps {
@@ -21,22 +21,22 @@ function GraphFetch({ onDataReceived }: GraphFetchProps) {
         VortexScan_id
         user
         dataUri
+    }
   }
-}
   `;
   
   const client: Client = createClient({
     url: QueryURL,
-    exchanges: [fetchExchange] // Add the fetchExchange here
+    exchanges: [fetchExchange]
   });
 
   useEffect(() => {
     const getDataAddeds = async () => {
       try {
-        const result: OperationResult<{ dataAddeds: DataAdded[] }> = await client.query(query, {}).toPromise();
+        const result: OperationResult<{ entityAddeds: DataAdded[] }> = await client.query(query, {}).toPromise();
         if (result.data) {
           console.log(result.data);
-          onDataReceived(result.data.dataAddeds);
+          onDataReceived(result.data.entityAddeds);
         } else {
           console.error('No data returned from the query');
         }
