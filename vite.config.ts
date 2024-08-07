@@ -5,13 +5,14 @@ import { defineConfig } from "vite";
 export default defineConfig({
   build: {
     outDir: "build",
+    rollupOptions: {
+      external: ["aptos"],
+    },
   },
   server: {
     open: true,
   },
-  plugins: [
-    react()
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./frontend"),
