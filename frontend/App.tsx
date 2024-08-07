@@ -1,23 +1,35 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
-import { Entry } from './pages/Entry';
+import {Entry} from './pages/Entry';
 import HowitWorks from './components/HowitWorks';
 import Tutorials from './components/Tutorials';
-import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard';
 
-function App() {
+const AppContent = () => {
+  const location = useLocation();
+
+  // List of routes where the Navbar should not be displayed
+  const noNavbarRoutes = ['/dashboard'];
 
   return (
-    <Router>
-      <Navbar />
+    <>
+      {!noNavbarRoutes.includes(location.pathname) && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/howitworks" element={<HowitWorks />} />
         <Route path="/walkthrough" element={<Tutorials />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path='/entry' element={<Entry />} />
+        <Route path="/entry" element={<Entry />} />
       </Routes>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
