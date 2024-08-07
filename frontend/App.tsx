@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import { Entry } from './pages/Entry';
+import HowitWorks from './components/HowitWorks';
+import Tutorials from './components/Tutorials';
 
 function App() {
 
@@ -10,6 +12,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/howitworks" element={<HowitWorks />} />
+        <Route path="/walkthrough" element={<Tutorials />} />
         <Route path='/entry' element={<Entry />} />
       </Routes>
     </Router>
