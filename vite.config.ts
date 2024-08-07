@@ -18,4 +18,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./frontend"),
     },
   },
+  optimizeDeps: {
+    include: ["aptos"],  // Make sure to include aptos for optimized dependency resolution
+  },
 });
