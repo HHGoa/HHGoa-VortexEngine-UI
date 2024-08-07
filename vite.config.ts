@@ -6,19 +6,18 @@ export default defineConfig({
   build: {
     outDir: "build",
     rollupOptions: {
-      external: ["aptos"],
+      external: ["aptos"],  // Add this line
     },
   },
   server: {
     open: true,
   },
-  plugins: [react()],
+  plugins: [
+    react()
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./frontend"),
     },
-  },
-  optimizeDeps: {
-    include: ["aptos"],  // Make sure to include aptos for optimized dependency resolution
   },
 });
