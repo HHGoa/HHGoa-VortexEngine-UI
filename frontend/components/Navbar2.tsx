@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { WalletSelector } from "./WalletSelector";
+import DropdownBtn from "./DropdownBtn";
 
 const Navbar2: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,7 +84,7 @@ const Navbar2: React.FC = () => {
                   Resources
                 </a>
               </li>
-              <WalletSelector />
+              <DropdownBtn />
             </ul>
           </div>
         </div>
@@ -120,7 +121,7 @@ const Navbar2: React.FC = () => {
             >
               Resources
             </a>
-            <WalletSelector />
+            <DropdownBtn />
           </div>
         </div>
       </div>
