@@ -8,18 +8,14 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
+  polygonAmoy
 } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const config = getDefaultConfig({
   appName: "My RainbowKit App",
   projectId: "YOUR_PROJECT_ID",
-  chains: [polygon, base, optimism, mainnet],
+  chains: [polygonAmoy],
   ssr: true, // If your dApp uses server-side rendering (SSR)
 });
 const queryClient = new QueryClient();
@@ -96,7 +92,7 @@ const CustomButton: React.FC = () => {
                     return (
                       <div style={{ display: "flex", gap: 12 }}>
                         <button
-                          className=" text-white broge-font text-[6px] md:text-xs bg-gradient-to-t from-pink-500 via-red-500 to-yellow-500 hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 hover:shadow-xl p-3 rounded font-medium border-b-2 border-white"
+                          className=" text-white text-xs w-full bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:bg-gradient-to-l p-3 px-2 rounded bricolage-font border-2"
                           onClick={openChainModal}
                           style={{ display: "flex", alignItems: "center" }}
                           type="button"
@@ -125,7 +121,7 @@ const CustomButton: React.FC = () => {
                         </button>
 
                         <button
-                          className=" text-white bg-gradient-to-t from-pink-500 via-red-500 to-yellow-500 hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 hover:shadow-xl p-3 rounded text-[6px] md:text-xs font-medium border-b-2 border-white"
+                          className=" text-white text-xs w-full bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:bg-gradient-to-l p-3 px-2 rounded bricolage-font border-2 "
                           onClick={openAccountModal}
                           type="button"
                         >

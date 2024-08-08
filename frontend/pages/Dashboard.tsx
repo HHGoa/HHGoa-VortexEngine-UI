@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
                 </thead>
                 <tbody>
                   {dataAddeds.map((item) => (
-                    <tr key={item.id}>
+                    <tr className=" bricolage-font" key={item.id}>
                       <td className="py-2 px-4 border border-gray-200">{item.id}</td>
                       <td className="py-2 px-4 text-center border border-gray-200">{item.VortexScan_id}</td>
                       <td className="py-2 px-4 border border-gray-200">{item.user}</td>
@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
                 </tbody>
               </table>
             ) : (
-              <p className="text-center mt-4">No data available</p>
+              <p className="text-center mt-4 brandy-font text-2xl">Loading...</p>
             )}
           </div>
         </div>

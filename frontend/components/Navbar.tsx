@@ -103,7 +103,8 @@ const Navbar: React.FC = () => {
                   Resources
                 </a>
               </li>
-              <WalletSelector />
+              {/* <WalletSelector /> */}
+              <DropdownBtn />
             </ul>
           </div>
         </div>

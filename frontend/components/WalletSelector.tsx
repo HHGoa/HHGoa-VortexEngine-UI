@@ -8,7 +8,7 @@ import {
   groupAndSortWallets,
   isAptosConnectWallet,
   isInstallRequired,
-  truncateAddress,
+  truncateAddress,  
   useWallet,
 } from "@aptos-labs/wallet-adapter-react";
 import { ArrowLeft, ArrowRight, ChevronDown, Copy, LogOut, User } from "lucide-react";
@@ -52,7 +52,7 @@ export function WalletSelector() {
   return connected ? (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="text-white text-xs lg:text-base bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:bg-gradient-to-l p-3 px-6 rounded-xl md:text-base brandy-font border-2 custom-border-radius">{account?.ansName || truncateAddress(account?.address) || "Unknown"}</Button>
+        <Button className="text-white text-xs lg:text-base w-full bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:bg-gradient-to-l p-3 px-6 rounded md:text-base bricolage-font border-2 ">{account?.ansName || truncateAddress(account?.address) || "Unknown"}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onSelect={copyAddress} className="gap-2">
@@ -98,7 +98,7 @@ function ConnectWalletDialog({ close }: ConnectWalletDialogProps) {
   const hasAptosConnectWallets = !!aptosConnectWallets.length;
 
   return (
-    <DialogContent className="max-h-screen overflow-auto">
+    <DialogContent className="max-h-screen bg-transparent backdrop-filter backdrop-blur-2xl overflow-auto">
       <AboutAptosConnect renderEducationScreen={renderEducationScreen}>
         <DialogHeader>
           <DialogTitle className="flex flex-col text-center leading-snug">

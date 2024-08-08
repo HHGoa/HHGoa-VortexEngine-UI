@@ -16,8 +16,8 @@ const Tutorials = () => {
         </p>
         <div className="absolute top-0 left-0 w-full h-full flex items-center">
           <Marquee gradient={false} className="text-xs md:text-xl lg:text-2xl">
-            <p>A Step-by-Step Showcase</p>
-            <p>A Step-by-Step Showcase</p>
+            <p className=" mr-72  ">A Step-by-Step Showcase</p>
+            <p>Export Your Game as .exe</p>
           </Marquee>
         </div>
       </div>

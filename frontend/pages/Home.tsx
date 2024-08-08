@@ -22,7 +22,7 @@ const Home: React.FC = () => {
                 Welcome to VortexEngine
               </p>
               <p className="pt-4 text-center text-base mx-4 md:mx-0 md:text-xl">
-                Unlock the future of gaming with our cutt qing-edge game engine. Designed for developers, by developers,
+                Unlock the future of gaming with our cutting-edge game engine. Designed for developers, by developers,
                 VortexEngine offers seamless integration, powerful tools, and endless possibilities. Join the revolution
                 and bring your game ideas to life on the blockchain.
               </p>
