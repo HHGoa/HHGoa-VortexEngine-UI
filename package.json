@@ -17,6 +17,9 @@
     "fmt": "npm run _fmt -- --write"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.0.2",
+    "viem": "^2.8.10",
+    "wagmi": "^2.5.7",
     "@aptos-labs/ts-sdk": "1.22.1",
     "@aptos-labs/wallet-adapter-react": "^3.5.0",
     "@mizuwallet-sdk/core": "^1.2.0",

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { WalletSelector } from "./WalletSelector";
+import DropdownBtn from "./DropdownBtn";
+
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState("");
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -27,7 +30,8 @@ const Navbar: React.FC = () => {
           className="text-white text-xs lg:text-xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 p-3 px-6 rounded-xl md:text-base border-2 brandy-font border-white custom-border-radius"
         >
           VortexEngine
-        </a>
+        </a> 
+      
 
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="block text-xl font-semibold focus:outline-none mr-4">
@@ -151,7 +155,8 @@ const Navbar: React.FC = () => {
             >
               Resources
             </a>
-            <WalletSelector />
+            {/* <WalletSelector /> */}
+            <DropdownBtn />
           </div>
         </div>
       </div>
