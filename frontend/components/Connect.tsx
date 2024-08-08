@@ -61,12 +61,13 @@ const CustomButton: React.FC = () => {
                   {(() => {
                     if (!connected) {
                       return (
+                        <div className=" flex justify-center">
                         <button
-                          className="text-white flex items-center broge-font text-[8px] md:text-xs bg-gradient-to-t from-pink-500 via-red-500 to-yellow-500 hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 hover:shadow-xl p-2 md:p-3 rounded font-medium border-b-2 border-white"
+                          className=" text-white flex items-center"
                           onClick={openConnectModal}
                           type="button"
                         >
-                          Connect Wallet
+                           EVM Wallet
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -76,6 +77,7 @@ const CustomButton: React.FC = () => {
                             <path d="M2.273 5.625A4.483 4.483 0 0 1 5.25 4.5h13.5c1.141 0 2.183.425 2.977 1.125A3 3 0 0 0 18.75 3H5.25a3 3 0 0 0-2.977 2.625ZM2.273 8.625A4.483 4.483 0 0 1 5.25 7.5h13.5c1.141 0 2.183.425 2.977 1.125A3 3 0 0 0 18.75 6H5.25a3 3 0 0 0-2.977 2.625ZM5.25 9a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h13.5a3 3 0 0 0 3-3v-6a3 3 0 0 0-3-3H15a.75.75 0 0 0-.75.75 2.25 2.25 0 0 1-4.5 0A.75.75 0 0 0 9 9H5.25Z" />
                           </svg>
                         </button>
+                        </div>
                       );
                     }
 

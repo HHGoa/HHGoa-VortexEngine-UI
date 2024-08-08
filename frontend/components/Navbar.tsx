@@ -148,7 +148,7 @@ const Navbar: React.FC = () => {
             </NavLink>
             <a
               href="https://manis-organization-2.gitbook.io/vortexdocs" target="_blank"
-              className={`text-white text-2xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl border-b-2 p-3 px-6 rounded-xl md:text-base brandy-font mr-2 ${
+              className={`text-white text-2xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl border-b-2 p-3 px-6 rounded-xl md:text-base brandy-font mr-6 ${
                 activeMenu === "resources" ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md" : ""
               }`}
               onClick={() => handleMenuClick("resources")}
