@@ -26,7 +26,7 @@ const Tutorials = () => {
           <div className="flex-row flex-wrap space-y-6">
             {videoData.map((video, index) => (
               <div className=" ">
-              <div key={index} className="flex-row md:flex border-2 gradient-border items-center shadow-lg mx-auto overflow-hidden w-[90%] md:w-[60%] p-6 ">
+              <div key={index} className="flex-row md:flex border-2 gradient-border items-center shadow-lg mx-auto overflow-hidden w-[90%] md:w-[80%] p-6 ">
                 <div className="flex-shrink-0">
                   <iframe
                     className="w-fit md:w-[500px] h-[200px] sm:h-[300px] lg:h-[315px]"

@@ -27,10 +27,10 @@ const Navbar: React.FC = () => {
 
   return (
     <div>
-      <div className="bg-transparent z-50 w-full fixed backdrop-filter backdrop-blur-lg bg-opacity-20 pb-3 pt-2 px-3 flex justify-between items-center text-white">
+      <div className="bg-transparent z-50 w-full fixed backdrop-filter backdrop-blur-lg bg-opacity-20 pb-3 pt-2 px-3 flex justify-between items-center text-white bricolage-font">
         <a
           href="/"
-          className="text-white text-xs lg:text-xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 p-3 px-6 rounded-xl md:text-base border-2 border-white"
+          className="text-white text-xs lg:text-xl brandy-font bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-95 transform transition-transform duration-100 hover:shadow-xl hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 p-3 px-6 rounded md:text-base border-2 border-white"
         >
           VortexEngine
         </a>
@@ -55,7 +55,9 @@ const Navbar: React.FC = () => {
                 <a
                   href="#home"
                   className={`py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer ${
-                    activeMenu === "home" ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black" : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
+                    activeMenu === "home"
+                      ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black"
+                      : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
                   }`}
                   onClick={() => handleMenuClick("home")}
                 >
@@ -66,7 +68,9 @@ const Navbar: React.FC = () => {
                 <a
                   href="#howitworks"
                   className={`py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer ${
-                    activeMenu === "howitworks" ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black" : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
+                    activeMenu === "howitworks"
+                      ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black"
+                      : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
                   }`}
                   onClick={() => handleMenuClick("howitworks")}
                 >
@@ -77,7 +81,9 @@ const Navbar: React.FC = () => {
                 <a
                   href="#walkthrough"
                   className={`py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer ${
-                    activeMenu === "walkthrough" ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black" : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
+                    activeMenu === "walkthrough"
+                      ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black"
+                      : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
                   }`}
                   onClick={() => handleMenuClick("walkthrough")}
                 >
@@ -88,7 +94,9 @@ const Navbar: React.FC = () => {
                 <a
                   href="/dashboard"
                   className={`py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer ${
-                    activeMenu === "dashboard" ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black" : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
+                    activeMenu === "dashboard"
+                      ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black"
+                      : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
                   }`}
                   onClick={() => handleMenuClick("dashboard")}
                 >
@@ -99,7 +107,9 @@ const Navbar: React.FC = () => {
                 <a
                   href="/contact"
                   className={`py-1 px-1 mx-1 pt-2 md:py-3 underline md:px-3 md:mx-3 flex-wrap cursor-pointer pb-2 ${
-                    activeMenu === "resources" ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black" : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
+                    activeMenu === "resources"
+                      ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black"
+                      : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
                   }`}
                   onClick={() => handleMenuClick("resources")}
                 >
@@ -168,8 +178,8 @@ const Navbar: React.FC = () => {
           </a>
           <a
             href="/dashboard"
-            className={`py-1 px-5 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-2 cursor-pointer ${
-              activeMenu === "dashboard" ? "text-gray-400 hover:scale-105 underline" : " hover:text-gray-400"
+            className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
+              activeMenu === "dashboard" ? "hover:scale-105 rounded-xl border-b-2" : " hover:text-gray-400"
             }`}
             onClick={() => handleMenuClick("dashboard")}
           >
@@ -178,7 +188,10 @@ const Navbar: React.FC = () => {
           <a
             href="https://manis-organization-2.gitbook.io/vortexdocs"
             target="_blank"
-            className="text-white text-2xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl border-b-2 p-3 px-6 rounded-xl md:text-base mr-6"
+            className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
+              activeMenu === "resources" ? "hover:scale-105 border-b-2 rounded-xl" : " hover:text-gray-400"
+            }`}
+            onClick={() => handleMenuClick("resources")}
           >
             Resources
           </a>
@@ -188,6 +201,7 @@ const Navbar: React.FC = () => {
               className="py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
             >
               {selectedChain}
+              
             </button>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-md">
@@ -206,7 +220,7 @@ const Navbar: React.FC = () => {
               </ul>
             )}
           </div>
-          <ConnectButton chain = {selectedChain} />
+          <ConnectButton chain={selectedChain} />
         </div>
       </div>
     </div>
