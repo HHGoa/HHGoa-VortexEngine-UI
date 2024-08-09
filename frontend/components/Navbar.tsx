@@ -178,8 +178,8 @@ const Navbar: React.FC = () => {
           </a>
           <a
             href="/dashboard"
-            className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
-              activeMenu === "dashboard" ? "hover:scale-105 rounded-xl border-b-2" : " hover:text-gray-400"
+            className={`py-1 px-5 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-2 cursor-pointer ${
+              activeMenu === "dashboard" ? "text-gray-400 hover:scale-105 underline" : " hover:text-gray-400"
             }`}
             onClick={() => handleMenuClick("dashboard")}
           >
@@ -198,10 +198,24 @@ const Navbar: React.FC = () => {
           <div className="relative">
             <button
               onClick={toggleDropdown}
-              className="py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
+              className="py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md flex justify-center items-center"
             >
               {selectedChain}
-              
+              <svg
+                className="w-6 h-6 text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M18.425 10.271C19.499 8.967 18.57 7 16.88 7H7.12c-1.69 0-2.618 1.967-1.544 3.271l4.881 5.927a2 2 0 0 0 3.088 0l4.88-5.927Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </button>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-md">
