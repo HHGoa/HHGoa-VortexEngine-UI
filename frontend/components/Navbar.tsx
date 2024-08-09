@@ -1,20 +1,14 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { WalletSelector } from "./WalletSelector";
-import DropdownBtn from "./DropdownBtn";
-
+import ConnectButton from "./ConnectButton";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState("");
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedChain, setSelectedChain] = useState("Aptos");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-  };
-
-  const handleCloseClick = () => {
-    setIsOpen(false);
   };
 
   const handleMenuClick = (menu: string) => {
@@ -22,32 +16,41 @@ const Navbar: React.FC = () => {
     setIsOpen(false); // Close the mobile menu on click
   };
 
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleChainSelection = (chain: string) => {
+    setSelectedChain(chain);
+    setDropdownOpen(false);
+  };
+
   return (
-    <div className="">
-      <div className="bg-transparent z-50 w-full fixed backdrop-filter backdrop-blur-lg bg-opacity-20 pb-3 pt-2 px-3 flex justify-between items-center text-white bricolage-font">
+    <div>
+      <div className="bg-transparent z-50 w-full fixed backdrop-filter backdrop-blur-lg bg-opacity-20 pb-3 pt-2 px-3 flex justify-between items-center text-white">
         <a
           href="/"
-          className="text-white text-xs lg:text-xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 p-3 px-6 rounded-xl md:text-base border-2 brandy-font border-white custom-border-radius"
+          className="text-white text-xs lg:text-xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 p-3 px-6 rounded-xl md:text-base border-2 border-white"
         >
           VortexEngine
-        </a> 
-      
+        </a>
 
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="block text-xl font-semibold focus:outline-none mr-4">
             ☰
           </button>
         </div>
+
         <div
           className={`lg:hidden absolute inset-y-0 z-50 left-0 transform transition duration-300 ease-in-out bg-black text-white backdrop-filter backdrop-blur-lg h-screen w-full ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <button onClick={handleCloseClick} className="absolute top-0 right-0 m-4 text-2xl focus:outline-none">
+          <button onClick={toggleMenu} className="absolute top-0 right-0 m-4 text-2xl focus:outline-none">
             ×
           </button>
           <div className="flex justify-center min-h-screen">
-            <ul className="p-4 space-y-2 poppins-font text-center font-medium">
+            <ul className="p-4 space-y-2 text-center font-medium">
               <li>
                 <a
                   href="#home"
@@ -95,7 +98,7 @@ const Navbar: React.FC = () => {
               <li>
                 <a
                   href="/contact"
-                  className={`py-1 px-1 mx-1 pt-2 md:py-3 brandy-font underline md:px-3 md:mx-3 flex-wrap cursor-pointer pb-2 ${
+                  className={`py-1 px-1 mx-1 pt-2 md:py-3 underline md:px-3 md:mx-3 flex-wrap cursor-pointer pb-2 ${
                     activeMenu === "resources" ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md text-black" : "hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
                   }`}
                   onClick={() => handleMenuClick("resources")}
@@ -103,62 +106,107 @@ const Navbar: React.FC = () => {
                   Resources
                 </a>
               </li>
-              {/* <WalletSelector /> */}
-              <DropdownBtn />
+
+              <li>
+                <div className="relative">
+                  <button
+                    onClick={toggleDropdown}
+                    className="py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
+                  >
+                    Select Chain
+                  </button>
+                  {isDropdownOpen && (
+                    <ul className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-md">
+                      <li
+                        className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                        onClick={() => handleChainSelection("Aptos")}
+                      >
+                        Aptos
+                      </li>
+                      <li
+                        className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                        onClick={() => handleChainSelection("Ethereum")}
+                      >
+                        Ethereum
+                      </li>
+                    </ul>
+                  )}
+                </div>
+              </li>
             </ul>
           </div>
         </div>
+
         {/* Desktop Navbar */}
-        <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-4 space-x-2 text-white poppins-font font-medium mr-4 text-lg">
-          <div>
-            <a
-              href="#home"
-              className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
-                activeMenu === "home" ? "hover:scale-105 border-b-2 rounded-xl" : " hover:text-gray-400"
-              }`}
-              onClick={() => handleMenuClick("home")}
+        <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-2 space-x-2 text-white font-medium mr-4 text-lg">
+          <a
+            href="#home"
+            className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
+              activeMenu === "home" ? "hover:scale-105 border-b-2 rounded-xl" : " hover:text-gray-400"
+            }`}
+            onClick={() => handleMenuClick("home")}
+          >
+            Home
+          </a>
+          <a
+            href="#howitworks"
+            className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
+              activeMenu === "howitworks" ? "hover:scale-105 border-b-2 rounded-xl" : " hover:text-gray-400"
+            }`}
+            onClick={() => handleMenuClick("howitworks")}
+          >
+            How it works
+          </a>
+          <a
+            href="#walkthrough"
+            className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
+              activeMenu === "walkthrough" ? "hover:scale-105 rounded-xl border-b-2" : " hover:text-gray-400"
+            }`}
+            onClick={() => handleMenuClick("walkthrough")}
+          >
+            Walkthrough
+          </a>
+          <a
+            href="/dashboard"
+            className={`py-1 px-5 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-2 cursor-pointer ${
+              activeMenu === "dashboard" ? "text-gray-400 hover:scale-105 underline" : " hover:text-gray-400"
+            }`}
+            onClick={() => handleMenuClick("dashboard")}
+          >
+            Dashboard
+          </a>
+          <a
+            href="https://manis-organization-2.gitbook.io/vortexdocs"
+            target="_blank"
+            className="text-white text-2xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl border-b-2 p-3 px-6 rounded-xl md:text-base mr-6"
+          >
+            Resources
+          </a>
+          <div className="relative">
+            <button
+              onClick={toggleDropdown}
+              className="py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
             >
-              Home
-            </a>
-            <a
-              href="#howitworks"
-              className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
-                activeMenu === "howitworks" ? "hover:scale-105 border-b-2 rounded-xl" : " hover:text-gray-400"
-              }`}
-              onClick={() => handleMenuClick("howitworks")}
-            >
-              How it works
-            </a>
-            <a
-              href="#walkthrough"
-              className={`py-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-3 px-6 cursor-pointer ${
-                activeMenu === "walkthrough" ? "hover:scale-105 rounded-xl border-b-2" : " hover:text-gray-400"
-              }`}
-              onClick={() => handleMenuClick("walkthrough")}
-            >
-              Walkthrough
-            </a>
-            <NavLink
-              to="/dashboard"
-              className={`py-1 px-5 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-2 cursor-pointer ${
-                activeMenu === "dashboard" ? "text-gray-400 hover:scale-105 underline" : " hover:text-gray-400"
-              }`}
-              onClick={() => handleMenuClick("dashboard")}
-            >
-              Dashboard
-            </NavLink>
-            <a
-              href="https://manis-organization-2.gitbook.io/vortexdocs" target="_blank"
-              className={`text-white text-2xl bg-transparent backdrop-blur-2xl backdrop-filter hover:scale-105 transform transition-transform duration-100 hover:shadow-xl border-b-2 p-3 px-6 rounded-xl md:text-base brandy-font mr-6 ${
-                activeMenu === "resources" ? "bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-md" : ""
-              }`}
-              onClick={() => handleMenuClick("resources")}
-            >
-              Resources
-            </a>
-            {/* <WalletSelector /> */}
-            <DropdownBtn />
+              {selectedChain}
+            </button>
+            {isDropdownOpen && (
+              <ul className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-md">
+                <li
+                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  onClick={() => handleChainSelection("Aptos")}
+                >
+                  Aptos
+                </li>
+                <li
+                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  onClick={() => handleChainSelection("Ethereum")}
+                >
+                  Ethereum
+                </li>
+              </ul>
+            )}
           </div>
+          <ConnectButton chain = {selectedChain} />
         </div>
       </div>
     </div>

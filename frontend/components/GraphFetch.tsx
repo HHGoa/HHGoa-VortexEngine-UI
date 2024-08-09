@@ -2,11 +2,12 @@ import { createClient, Client, fetchExchange, OperationResult } from 'urql';
 import { useEffect } from 'react';
 
 export interface DataAdded {
-  id: string;
-  VortexScan_id: string; // Update the interface to match the query
-  user: string;
-  dataUri: string;
+  VortexScan_id: string; // Matches "VortexScan ID"
+  user: string;          // Matches "User Address"
+  dataUri: string;       // Matches "Data URI"
+  id: string;            // Matches "ID"
 }
+
 
 interface GraphFetchProps {
   onDataReceived: (data: DataAdded[]) => void;
