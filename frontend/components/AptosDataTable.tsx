@@ -6,12 +6,12 @@ interface DataTableProps<T> {
 
 const AptosDataTable = <T extends Record<string, any>>({ columns, data, loading }: DataTableProps<T>) => {
   return (
-    <div className="overflow-x-auto min-w-screen">
-      <table className="w-full bg-transparent backdrop-blur-2xl border border-gray-200">
+    <div className="overflow-x-auto">
+      <table className="min-w-full bg-transparent backdrop-blur-2xl border border-gray-200">
         <thead>
           <tr>
             {columns.map((column, index) => (
-              <th key={index} className="py-2 px-4 brandy-font border border-gray-200 text-left">{column}</th>
+              <th key={index} className="py-2 px-4 brandy-font border text-center border-gray-200">{column}</th>
             ))}
           </tr>
         </thead>
@@ -23,14 +23,14 @@ const AptosDataTable = <T extends Record<string, any>>({ columns, data, loading 
           ) : data.length > 0 ? (
             data.map((item, index) => (
               <tr className="bricolage-font" key={index}>
-                <td className="py-2 px-4 border border-gray-200">{item.entry_id}</td>
-                <td className="py-2 px-4 border border-gray-200 overflow-hidden whitespace-nowrap truncate max-w-[200px] md:max-w-none">{item.Walletaddress}</td>
-                <td className="py-2 px-4 border border-gray-200 overflow-hidden whitespace-nowrap truncate max-w-[200px] md:max-w-none">
-                  <a href={item.ipfscontent} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                <td className="py-2 px-4 border border-gray-200 truncate w-16 overflow-hidden whitespace-nowrap">{item.entry_id}</td>
+                <td className="py-2 px-4 border border-gray-200 truncate max-w-64 overflow-hidden whitespace-nowrap">{item.Walletaddress}</td>
+                <td className="py-2 px-4 border border-gray-200 truncate max-w-64 overflow-hidden whitespace-nowrap">
+                  <a href={item.ipfscontent} className="text-green-500 hover:underline" target="_blank" rel="noopener noreferrer">
                     {item.ipfscontent}
                   </a>
                 </td>
-                <td className="py-2 px-4 border border-gray-200">{item.timestamp}</td>
+                <td className="py-2 px-4 border border-gray-200 truncate w-32 overflow-hidden whitespace-nowrap">{item.timestamp}</td>
               </tr>
             ))
           ) : (
