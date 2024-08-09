@@ -1,4 +1,3 @@
-
 interface DataTableProps<T> {
   columns: string[];
   data: T[];
@@ -29,6 +28,17 @@ const convertHexToDate = (hexString: string): string => {
 };
 
 const EthDataTable = <T extends Record<string, any>>({ columns, data, loading }: DataTableProps<T>) => {
+  // Sort data by Contract_id in ascending order
+  const sortedData = [...data].sort((a, b) => {
+    if (a.Contract_id < b.Contract_id) {
+      return -1;
+    }
+    if (a.Contract_id > b.Contract_id) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-transparent backdrop-blur-2xl border border-gray-200">
@@ -44,10 +54,10 @@ const EthDataTable = <T extends Record<string, any>>({ columns, data, loading }:
             <tr>
               <td colSpan={columns.length} className="py-2 px-4 text-center border border-gray-200">Loading...</td>
             </tr>
-          ) : data.length > 0 ? (
-            data.map((item, index) => (
+          ) : sortedData.length > 0 ? (
+            sortedData.map((item, index) => (
               <tr className="bricolage-font" key={index}>
-                <td className="py-2 px-4 border border-gray-200">{item.VortexScan_id}</td>
+                <td className="py-2 px-4 border border-gray-200">{item.Contract_id}</td>
                 <td className="py-2 px-4 border border-gray-200 overflow-x-auto whitespace-nowrap">{item.user}</td>
                 <td className="py-2 px-4 border border-gray-200 overflow-x-auto whitespace-nowrap">
                   <a href={item.dataUri} className="text-green-500 hover:underline" target="_blank" rel="noopener noreferrer">
