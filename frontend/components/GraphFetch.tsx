@@ -2,7 +2,7 @@ import { createClient, Client, fetchExchange, OperationResult } from 'urql';
 import { useEffect } from 'react';
 
 export interface DataAdded {
-  VortexScan_id: string; // Matches "VortexScan ID"
+  Contract_id: string; // Matches "VortexScan ID"
   user: string;          // Matches "User Address"
   dataUri: string;       // Matches "Data URI"
   id: string;            // Matches "ID"
@@ -18,8 +18,7 @@ function GraphFetch({ onDataReceived }: GraphFetchProps) {
   const query = `
   {
     entityAddeds(first: 5) {
-        id
-        VortexScan_id
+        Contract_id
         user
         dataUri
         timestamp

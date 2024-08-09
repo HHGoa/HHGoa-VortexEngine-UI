@@ -18,7 +18,7 @@ const HowitWorks = () => {
               <div className="items-center p-2 lg:p-4">
                 <div>
                   <p className=" brandy-font text-4xl md:text-7xl text-center">1</p>
-                  <p className=" text-xl md:text-2xl font-semibold brandy-font text-center">Generate Unique Key</p>
+                  <p className=" text-xl md:text-2xl font-semibold brandy-font text-center">Onboarding</p>
                   <p className="text-center">
                     Use our dynamic wallet integration to securely connect your preferred crypto wallet
                   </p>
