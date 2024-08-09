@@ -1,5 +1,3 @@
-
-
 interface DataTableProps<T> {
   columns: string[];
   data: T[];
@@ -8,8 +6,8 @@ interface DataTableProps<T> {
 
 const AptosDataTable = <T extends Record<string, any>>({ columns, data, loading }: DataTableProps<T>) => {
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full bg-transparent backdrop-blur-2xl border border-gray-200">
+    <div className="overflow-x-auto min-w-screen">
+      <table className="w-full bg-transparent backdrop-blur-2xl border border-gray-200">
         <thead>
           <tr>
             {columns.map((column, index) => (
@@ -26,8 +24,8 @@ const AptosDataTable = <T extends Record<string, any>>({ columns, data, loading 
             data.map((item, index) => (
               <tr className="bricolage-font" key={index}>
                 <td className="py-2 px-4 border border-gray-200">{item.entry_id}</td>
-                <td className="py-2 px-4 border border-gray-200 overflow-x-auto whitespace-nowrap">{item.Walletaddress}</td>
-                <td className="py-2 px-4 border border-gray-200 overflow-x-auto whitespace-nowrap">
+                <td className="py-2 px-4 border border-gray-200 overflow-hidden whitespace-nowrap truncate max-w-[200px] md:max-w-none">{item.Walletaddress}</td>
+                <td className="py-2 px-4 border border-gray-200 overflow-hidden whitespace-nowrap truncate max-w-[200px] md:max-w-none">
                   <a href={item.ipfscontent} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
                     {item.ipfscontent}
                   </a>
