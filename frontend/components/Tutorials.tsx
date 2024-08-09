@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 
 const videoData = [
-  { videoSrc: 'https://www.youtube.com/watch?v=PK_EJ3DyiiA', content: 'Unlock the future of gaming with our cutt qing-edge game engine. Designed for developers, by developers, VortexEngine offers seamless integration, powerful tools, and endless possibilities. Join the revolution and bring your game ideas to life on the blockchain.' },
+  { videoSrc: 'https://youtu.be/GpgEEeAacn0', content: 'Unlock the future of gaming with our cutt qing-edge game engine. Designed for developers, by developers, VortexEngine offers seamless integration, powerful tools, and endless possibilities. Join the revolution and bring your game ideas to life on the blockchain.' },
   { videoSrc: 'https://www.youtube.com/watch?v=dyUmgWxPKwc', content: 'Unlock the future of gaming with our cutt qing-edge game engine. Designed for developers, by developers, VortexEngine offers seamless integration, powerful tools, and endless possibilities. Join the revolution and bring your game ideas to life on the blockchain.' },
   { videoSrc: 'https://www.youtube.com/watch?v=dyUmgWxPKwc', content: 'Unlock the future of gaming with our cutt qing-edge game engine. Designed for developers, by developers, VortexEngine offers seamless integration, powerful tools, and endless possibilities. Join the revolution and bring your game ideas to life on the blockchain.' },
   // Add more video data with URLs here
