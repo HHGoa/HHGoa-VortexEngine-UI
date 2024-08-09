@@ -50,7 +50,7 @@ const EthDataTable = <T extends Record<string, any>>({ columns, data, loading }:
                 <td className="py-2 px-4 border border-gray-200">{item.VortexScan_id}</td>
                 <td className="py-2 px-4 border border-gray-200 overflow-x-auto whitespace-nowrap">{item.user}</td>
                 <td className="py-2 px-4 border border-gray-200 overflow-x-auto whitespace-nowrap">
-                  <a href={item.dataUri} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                  <a href={item.dataUri} className="text-green-500 hover:underline" target="_blank" rel="noopener noreferrer">
                     {item.dataUri}
                   </a>
                 </td>
