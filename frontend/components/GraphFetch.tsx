@@ -22,6 +22,7 @@ function GraphFetch({ onDataReceived }: GraphFetchProps) {
         VortexScan_id
         user
         dataUri
+        timestamp
     }
   }
   `;

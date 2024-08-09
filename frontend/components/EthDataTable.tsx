@@ -1,10 +1,32 @@
-import React from "react";
 
 interface DataTableProps<T> {
   columns: string[];
   data: T[];
   loading: boolean; // New prop to indicate loading state
 }
+
+// Utility function to convert hex timestamp to a human-readable date
+const convertHexToDate = (hexString: string): string => {
+  // Remove the '0x' prefix
+  const hex = hexString.startsWith('0x') ? hexString.slice(2) : hexString;
+  
+  // Convert hex to decimal
+  const decimalTimestamp = BigInt('0x' + hex);
+  
+  // Convert to milliseconds (assuming timestamp is in milliseconds)
+  const timestampInMilliseconds = Number(decimalTimestamp);
+  
+  // Create a Date object
+  const date = new Date(timestampInMilliseconds);
+  
+  // Check if the date is valid
+  if (isNaN(date.getTime())) {
+    return 'Invalid date';
+  }
+  
+  // Format the date as a readable string
+  return date.toLocaleString();
+};
 
 const EthDataTable = <T extends Record<string, any>>({ columns, data, loading }: DataTableProps<T>) => {
   return (
@@ -32,7 +54,7 @@ const EthDataTable = <T extends Record<string, any>>({ columns, data, loading }:
                     {item.dataUri}
                   </a>
                 </td>
-                <td className="py-2 px-4 border border-gray-200">{item.id}</td>
+                <td className="py-2 px-4 border border-gray-200">{convertHexToDate(item.timestamp)}</td>
               </tr>
             ))
           ) : (

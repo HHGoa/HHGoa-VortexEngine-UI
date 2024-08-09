@@ -39,6 +39,7 @@ const AptosFetch: React.FC<AptosFetchProps> = ({ onDataReceived }) => {
             const result = await response.json();
             setData(result);
             onDataReceived(result); // Call onDataReceived with the fetched data
+            console.log(data);
         } catch (error) {
             console.error("Error fetching data:", error);
         }
