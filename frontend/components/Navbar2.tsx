@@ -35,6 +35,12 @@ const Navbar2: React.FC<Navbar2Props> = ({ setSelectedChain }) => {
     setDropdownOpen(false);
   };
 
+  const [isRotated, setIsRotated] = useState(false);
+
+  const toggleRotation = () => {
+    setIsRotated(!isRotated);
+  };
+
   return (
     <div className="">
       <div className="bg-transparent z-50 w-full fixed backdrop-filter backdrop-blur-lg bg-opacity-20 pb-3 pt-2 px-3 flex justify-between items-center text-white bricolage-font">
@@ -166,20 +172,37 @@ const Navbar2: React.FC<Navbar2Props> = ({ setSelectedChain }) => {
           <div className="relative">
             <button
               onClick={toggleDropdown}
-              className="py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md hover:text-black"
+              className="py-1 px-1 mx-1 md:py-3 md:px-5 md:mx-3 flex-wrap cursor-pointer border-b-2 rounded-xl flex justify-center items-center"
             >
               {selectedChain}
+              <svg
+                // className="w-6 h-6 text-white"
+                onClick={toggleRotation}
+                className={` w-6 h-6 ml-2 text-white transform transition-transform duration-500 ${isRotated ? 'rotate-180' : 'rotate-0'}`}
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M18.425 10.271C19.499 8.967 18.57 7 16.88 7H7.12c-1.69 0-2.618 1.967-1.544 3.271l4.881 5.927a2 2 0 0 0 3.088 0l4.88-5.927Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </button>
             {isDropdownOpen && (
-              <ul className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-md">
+              <ul className="absolute left-0 w-full text-center mt-2 bg-purple-800 backdrop-filter backdrop-blur-2xl text-white border-2 gradient-border shadow-lg rounded-md">
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className="px-4 py-2 hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 cursor-pointer"
                   onClick={() => handleChainSelection("Aptos")}
                 >
                   Aptos
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className="px-4 py-2 hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 cursor-pointer"
                   onClick={() => handleChainSelection("Ethereum")}
                 >
                   Ethereum

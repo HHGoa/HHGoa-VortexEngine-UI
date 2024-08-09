@@ -26,6 +26,12 @@ const Navbar: React.FC = () => {
     setDropdownOpen(false);
   };
 
+  const [isRotated, setIsRotated] = useState(false);
+
+  const toggleRotation = () => {
+    setIsRotated(!isRotated);
+  };
+
   return (
     <div>
       <div className="bg-transparent z-50 w-full fixed backdrop-filter backdrop-blur-lg bg-opacity-20 pb-3 pt-2 px-3 flex justify-between items-center text-white bricolage-font">
@@ -199,11 +205,13 @@ const Navbar: React.FC = () => {
           <div className="relative">
             <button
               onClick={toggleDropdown}
-              className="py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap cursor-pointer hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:rounded-md flex justify-center items-center"
+              className="py-1 px-1 mx-1 md:py-3 md:px-5 md:mx-3 flex-wrap cursor-pointer border-b-2 rounded-xl flex justify-center items-center"
             >
               {selectedChain}
               <svg
-                className="w-6 h-6 text-white"
+                // className="w-6 h-6 text-white"
+                onClick={toggleRotation}
+                className={` w-6 h-6 ml-2 text-white transform transition-transform duration-500 ${isRotated ? 'rotate-180' : 'rotate-0'}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -219,15 +227,15 @@ const Navbar: React.FC = () => {
               </svg>
             </button>
             {isDropdownOpen && (
-              <ul className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-md">
+              <ul className="absolute left-0 w-full text-center mt-2 bg-transparent backdrop-filter backdrop-blur-2xl text-white border-2 gradient-border shadow-lg rounded-md">
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className="px-4 py-2 hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 cursor-pointer"
                   onClick={() => handleChainSelection("Aptos")}
                 >
                   Aptos
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className="px-4 py-2 hover:bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 cursor-pointer"
                   onClick={() => handleChainSelection("Ethereum")}
                 >
                   Ethereum

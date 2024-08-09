@@ -76,7 +76,7 @@ const CustomButton: React.FC = () => {
                     if (chain?.unsupported) {
                       return (
                         <button
-                          className=" text-white broge-font bg-gradient-to-t from-pink-500 via-red-500 to-yellow-500 hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 hover:shadow-xl p-3 rounded text-[8px] md:text-xs font-medium border-b-2 border-white"
+                          className=" text-white broge-font bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 hover:bg-gradient-to-l hover:shadow-xl p-3 rounded text-[8px] md:text-xs font-medium border-b-2 border-white"
                           onClick={openChainModal}
                           type="button"
                         >
