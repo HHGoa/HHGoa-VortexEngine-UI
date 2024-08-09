@@ -14,7 +14,7 @@ interface GraphFetchProps {
 }
 
 function GraphFetch({ onDataReceived }: GraphFetchProps) {
-  const QueryURL = "https://api.studio.thegraph.com/query/69475/vortexscan/v1";
+  const QueryURL = "https://api.studio.thegraph.com/query/69475/vortex/version/latest";
   const query = `
   {
     entityAddeds(first: 5) {
