@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ConnectButton from "./ConnectButton";
+import { NavLink } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -176,15 +177,15 @@ const Navbar: React.FC = () => {
           >
             Walkthrough
           </a>
-          <a
-            href="/dashboard"
+          <NavLink
+            to="/dashboard"
             className={`py-1 px-5 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap p-2 cursor-pointer ${
               activeMenu === "dashboard" ? "text-gray-400 hover:scale-105 underline" : " hover:text-gray-400"
             }`}
             onClick={() => handleMenuClick("dashboard")}
           >
             Dashboard
-          </a>
+          </NavLink>
           <a
             href="https://manis-organization-2.gitbook.io/vortexdocs"
             target="_blank"
