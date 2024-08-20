@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: polygon-amoy
+    source:
+      address: "0x2f6567B0dA00d1E16003f65af8eFFCBa2597218A"
+      abi: Contract
+      startBlock: 10499962
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - EntityAdded
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: EntityAdded(uint256,indexed address,string,uint256)
+          handler: handleEntityAdded
+      file: ./src/contract.ts
